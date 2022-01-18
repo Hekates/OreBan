@@ -4,3 +4,5 @@ main: ch.hekates.oreban.Oreban
 api-version: 1.18
 authors: [ Hekates ]
 description: A simple Plugin, wich lets administrators to ban players from mining ores.
+
+

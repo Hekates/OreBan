@@ -1,4 +1,3 @@
-
 <img src="/img/logo/oreban-logo.png" />
 
 <h3>Version: pre-alpha 0.2</h2>
@@ -10,7 +9,9 @@
 ![Maintenance](https://img.shields.io/maintenance/yes/2022?style=for-the-badge)
 
 <!-- TABLE OF CONTENTS -->
+
 # Table of Contents
+
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>

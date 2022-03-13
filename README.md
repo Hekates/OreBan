@@ -20,8 +20,8 @@ Always feel free to cantact me on discord: Hekates#2298
 
 <h2 name="about">About this project</h2>
 
-OreBan is a relatively simple Plugin which provides the ability for admins to ban specific players from mining previously specified ores.
+OreBan is a relatively simple Plugin that provides the ability for admins to ban specific players from mining previously specified ores.
 It could be a great punishment for using XRay.
 
-<em><b>Note:</b> This plugin is currently in the are-alpha stage which means that many core features aswell as the design isn't finished ore even done yet, so I wouldn't recommend using this plugin on a public server.</em>
+<em><b>Note:</b> This plugin is currently in the pre-alpha stage, which means that many core features as well as the design isn't finished or even done yet, so I wouldn't recommend using this plugin on a public server.</em>
 

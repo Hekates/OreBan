@@ -8,10 +8,6 @@
 ![Minecraft version](https://img.shields.io/badge/Minecraft-1.18-brightgreen?style=for-the-badge)
 ![Maintenance](https://img.shields.io/maintenance/yes/2022?style=for-the-badge)
 
-<!-- TABLE OF CONTENTS -->
-
-# Table of Contents
-
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>

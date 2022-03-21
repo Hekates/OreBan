@@ -5,27 +5,22 @@ import ch.hekates.oreban.models.BannedPlayersInfos;
 import com.google.gson.Gson;
 import org.bukkit.entity.Player;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.io.*;
+import java.util.*;
 
 public class StorageUtil {
 
     private static ArrayList<BannedPlayersInfos> infos = new ArrayList<>();
 
-    public static BannedPlayersInfos saveInformations(Player player, String note){
+    public static BannedPlayersInfos saveInformations(Player player, String note, Player banner){
 
         BannedPlayersInfos info = new BannedPlayersInfos(
                 player.getName(),
                 player.getUniqueId(),
                 true,
                 new Date(),
-                note);
+                note,
+                banner.getDisplayName());
         infos.add(info);
 
         try {
@@ -36,7 +31,17 @@ public class StorageUtil {
 
         return info;
     }
-    public static BannedPlayersInfos findInformationsUUID(UUID uuid){
+
+    public static boolean contains(UUID uuid){
+        for (BannedPlayersInfos info : infos){
+            if (info.getPlayerUUID().equals(uuid)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static BannedPlayersInfos findInformations(UUID uuid){
 
         for (BannedPlayersInfos info : infos){
             if (info.getPlayerUUID().equals(uuid)){
@@ -46,7 +51,7 @@ public class StorageUtil {
         return null;
     }
 
-    public static BannedPlayersInfos findInformationsName(String playerName){
+    public static BannedPlayersInfos findInformations(String playerName){
 
         for (BannedPlayersInfos info : infos){
             if (info.getPlayerName().equals(playerName)){
@@ -56,7 +61,7 @@ public class StorageUtil {
         return null;
     }
 
-    public static void deleteInformationsUUID(UUID uuid){
+    public static void deleteInformations(UUID uuid){
 
         for (BannedPlayersInfos info : infos){
             if (info.getPlayerUUID().equals(uuid)){
@@ -71,7 +76,7 @@ public class StorageUtil {
         }
     }
 
-    public static void deleteInformationsName(String name){
+    public static void deleteInformations(String name){
 
         for (BannedPlayersInfos info : infos){
             if (info.getPlayerName().equals(name)){
@@ -86,7 +91,7 @@ public class StorageUtil {
         }
     }
 
-    public static BannedPlayersInfos updateInfosUUID(UUID uuid, BannedPlayersInfos newInfos){
+    public static BannedPlayersInfos updateInfos(UUID uuid, BannedPlayersInfos newInfos){
 
         for (BannedPlayersInfos info : infos) {
             if (info.getPlayerUUID().equals(uuid)) {
@@ -103,7 +108,7 @@ public class StorageUtil {
         }
         return null;
     }
-    public static BannedPlayersInfos updateInfosName(String name, BannedPlayersInfos newInfos){
+    public static BannedPlayersInfos updateInfos(String name, BannedPlayersInfos newInfos){
 
         for (BannedPlayersInfos info : infos) {
             if (info.getPlayerName().equals(name)) {
@@ -136,6 +141,19 @@ public class StorageUtil {
         writer.flush();
         writer.close();
         System.out.println("OreBan-Informations saved.");
+
+    }
+
+    public static void loadOreBans() throws IOException{
+
+        Gson gson = new Gson();
+        File file = new File(Main.getPlugin().getDataFolder().getAbsolutePath() + "/informations.json");
+        if (file.exists()){
+            Reader reader = new FileReader(file);
+            BannedPlayersInfos[] b = gson.fromJson(reader, BannedPlayersInfos[].class);
+            infos = new ArrayList<>(Arrays.asList(b));
+            System.out.println("OreBan-Informations loaded.");
+        }
 
     }
 }

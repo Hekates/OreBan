@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -40,14 +41,24 @@ public class OreBanCommand extends SubCommand {
             }
             stringBuilder.append(args[args.length - 1]);
 
-            StorageUtil.saveInformations(Bukkit.getPlayer(args[1]), stringBuilder.toString() + " [" + new Date().toString() + "]");
+            StorageUtil.saveInformations(Bukkit.getPlayer(args[1]),
+                    stringBuilder.toString() + " [" + new Date().toString() + "]",
+                    (Player) sender);
         }else {
-            StorageUtil.saveInformations(Bukkit.getPlayer(args[1]), " [" + new Date().toString() + "]");
+            StorageUtil.saveInformations(Bukkit.getPlayer(args[1]),
+                    " [" + new Date().toString() + "]",
+                    (Player) sender);
         }
     }
 
     @Override
     public List<String> getSubcommandArguments(Player player, String[] args) {
-        return null;
+
+        List<String> players = new ArrayList<>();
+        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+            players.add(onlinePlayer.getName());
+        }
+
+        return players;
     }
 }

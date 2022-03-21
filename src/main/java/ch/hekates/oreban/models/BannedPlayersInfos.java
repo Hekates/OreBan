@@ -10,13 +10,15 @@ public class BannedPlayersInfos {
     private Boolean oreBanned;
     private Date dateBanned;
     private String note;
+    private String banner;
 
-    public BannedPlayersInfos(String playerName, UUID playerUUID, Boolean oreBanned, Date dateBanned, String note) {
+    public BannedPlayersInfos(String playerName, UUID playerUUID, Boolean oreBanned, Date dateBanned, String note, String banner) {
         this.playerUUID = playerUUID;
         this.playerName = playerName;
         this.oreBanned = oreBanned;
         this.dateBanned = dateBanned;
         this.note = note;
+        this.banner = banner;
     }
 
     public UUID getPlayerUUID() {
@@ -35,7 +37,7 @@ public class BannedPlayersInfos {
         this.playerName = playerName;
     }
 
-    public Boolean getOreBanned() {
+    public Boolean isOreBanned() {
         return oreBanned;
     }
 
@@ -57,5 +59,13 @@ public class BannedPlayersInfos {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public String getBanner() {
+        return banner;
+    }
+
+    public void setBanner(String banner){
+        this.banner = banner;
     }
 }

@@ -3,6 +3,7 @@ package ch.hekates.oreban.menus;
 import me.kodysimpson.simpapi.exceptions.MenuManagerException;
 import me.kodysimpson.simpapi.exceptions.MenuManagerNotSetupException;
 import me.kodysimpson.simpapi.menu.Menu;
+import me.kodysimpson.simpapi.menu.MenuManager;
 import me.kodysimpson.simpapi.menu.PlayerMenuUtility;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -32,6 +33,24 @@ public class MainMenu extends Menu {
     @Override
     public void handleMenu(InventoryClickEvent e) throws MenuManagerNotSetupException, MenuManagerException {
 
+        switch (e.getCurrentItem().getType()){
+            case FLOWER_BANNER_PATTERN:
+                MenuManager.openMenu(ListBansMenu.class, playerMenuUtility.getOwner());
+                break;
+
+            case NETHERITE_SWORD:
+                MenuManager.openMenu(UnOreBanMenu.class, playerMenuUtility.getOwner());
+                break;
+
+            case BARRIER:
+                playerMenuUtility.getOwner().closeInventory();
+                break;
+
+            case WRITABLE_BOOK:
+                playerMenuUtility.getOwner().closeInventory();
+                playerMenuUtility.getOwner().sendMessage("/oreban <player|UUID> [message]");
+        }
+
     }
 
     @Override
@@ -50,4 +69,5 @@ public class MainMenu extends Menu {
         setFillerGlass();
 
     }
+
 }

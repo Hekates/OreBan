@@ -1,16 +1,80 @@
+####################################################################################################
+# +---------------------------------------------------------------------------------------------+ #
+#|                                                                                               |#
+#|                                               +-------------________________.                 |#
+#|                 ,--''--.                    | <---\    '----'    <---\|  > |                  |#
+#|                '   ||   ' ,--.--' ,----.    |  | ° |  /  ^  |    |   '  | |                   |#
+#|               |    ||    ||  |--´|   |  |  |  | .  < /   _   |  |  .    | |                   |#
+#|                '   ||   ' |  |   |---|-.'  | <_____|<____^____> <-\|---  |                    |#
+#|                 `--''--'  `--'    `----'   +-------------________________+                    |#
+#|                                                                                               |#
+#|                                                                                               |#
+#|     WIKI: https://github.com/Hekates/OreBan/wiki                                              |#
+#|     BUG REPORTS: https://github.com/Hekates/OreBan/issues                                     |#
+#|                                                                                               |#
+#|                                                                                               |#
+#|     Config rules::                                                                            |#
+#|     - DO NOT USE TABS. You MUST use double spaces to avoid errors.                            |#
+#|     - Lines starting with # are comments, so they are ignored.                                |#
+#|                                                                                               |#
+#|                                                                                               |#
+# +---------------------------------------------------------------------------------------------+ #
+####################################################################################################
 
-#### ___           ____            ####
-#  /  _ \ _ __ ___| __ )  __ _ _ __   #
-#  | | | | '__/ _ |  _ \ / _` | '_ \  #
-#  | |_| | | |  __| |_) | (_| | | | | #
-#  \___/ |_|  \___|____/\__,_|_| |_|  #
-####          By Hekates-          ####
-
-#   ___         _   _    _
-#  / __> ___ _| |_| |_ <_>._ _  ___  ___
-#  \__ \/ ._> | | | |  | || ' |/ . |<_-<
-#  <___/\___. |_| |_|  |_||_|_|\_. |/__/
-#                              <___'
 #-Banned Ores-#
-ores:
-  -
+#Ores which naturally spawn in the overworld and have a deepslate variant.
+#Feel free to remove any of the listed ore, but:
+#!!ONLY ADD ORES WHICH HAVE A DEEPSLATE VARIANT!! (If they don't have a deepslate variant, add them under the "additional-blocks" section.)
+overworld-ores:
+  - "COAL_ORE"
+  - "IRON_ORE"
+  - "COPPER_ORE"
+  - "GOLD_ORE"
+  - "REDSTONE_ORE"
+  - "EMERALD_ORE"
+  - "LAPIS_ORE"
+  - "DIAMOND_ORE"
+
+translate-to-deepslate: true
+
+nether-ores:
+  - "NETHER_GOLD_ORE"
+  - "NETHER_QUARTZ_ORE"
+  - "ANCIENT_DEBRIS"
+
+raw-variants:
+  - "RAW_IRON"
+  - "RAW_COPPER"
+  - "RAW_GOD"
+
+include-raw-variants: true
+include-raw-blocks: true
+
+processed-variants:
+  - "COAL"
+  - "DIAMOND"
+  - "EMERALD"
+  - "LAPIS_LAZULI"
+  - "QUARTZ"
+  - "IRON_INGOT"
+  - "COPPER_INGOT"
+  - "GOLD_INGOT"
+  - "NETHERITE_SCRAP"
+  - "NETHERITE_INGOT"
+
+allow-item-pickup: false
+allow-inventory-transfer: true
+
+allow-ore-possession: true
+ore-possession-check-interval: 6000
+
+additional-blocks:
+  - "COAL_BLOCK"
+  - "IRON_BLOCK"
+  - "COPPER_BLOCK"
+  - "GOLD_BLOCK"
+  - "DIAMOND_BLOCK"
+  - "NETHERITE_BLOCK"
+
+additional-items:
+  - "CHARCOAL"

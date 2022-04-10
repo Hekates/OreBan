@@ -1,14 +1,14 @@
 package ch.hekates.oreban.utils;
 
 import ch.hekates.oreban.Main;
-import org.bukkit.configuration.Configuration;
+import org.bukkit.configuration.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OreListCombineUtil {
-    public static List combinedOres(){
-        Configuration config = Main.getPlugin(Main.class).getConfig();
+public class OreList {
+     public static List combineOres(){
+        Configuration config = Main.getPlugin().getConfig();
 
         List<String> overworldOres = (List<String>) config.getList("overworld-ores");
         List<String> possibleOres = overworldOres;
@@ -32,12 +32,23 @@ public class OreListCombineUtil {
                 rawBlocks.add(rawBlock);
             }
             possibleOres.addAll(rawBlocks);
-
         }
-
         List<String> additionalBlocks = (List<String>) config.getList("additional-blocks");
         possibleOres.addAll(additionalBlocks);
 
-        return combinedOres();
+        return possibleOres;
     }
+
+
+    private static List<String> ores;
+
+    public static void setOres(List<String> ores) {
+        OreList.ores = ores;
+    }
+
+
+    public static List<String> getOres() {
+        return ores;
+    }
+
 }

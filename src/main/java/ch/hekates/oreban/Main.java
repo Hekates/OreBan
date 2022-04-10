@@ -4,12 +4,12 @@ import ch.hekates.oreban.commands.BansMenuCommand;
 import ch.hekates.oreban.commands.OreBanCommand;
 import ch.hekates.oreban.commands.ReloadCommand;
 import ch.hekates.oreban.listeners.OreBreakListener;
+import ch.hekates.oreban.utils.OreList;
 import ch.hekates.oreban.utils.StorageUtil;
 import me.kodysimpson.simpapi.command.CommandList;
 import me.kodysimpson.simpapi.command.CommandManager;
 import me.kodysimpson.simpapi.command.SubCommand;
 import me.kodysimpson.simpapi.menu.MenuManager;
-import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -27,8 +27,8 @@ public final class Main extends JavaPlugin {
 
         plugin = this;
 
-        int pluginId = 14768;
-        Metrics metrics = new Metrics(this, pluginId);
+        OreList.setOres(OreList.combineOres());
+        System.out.println("Set checked Ores!");
 
         try {
             CommandManager.createCoreCommand(this, "oreban", "(Un-)Bans players from minig ores.", "/oreban <ban|unban|reload>", new CommandList() {
@@ -55,6 +55,7 @@ public final class Main extends JavaPlugin {
         }
 
         Bukkit.getPluginManager().registerEvents(new OreBreakListener(), this);
+
 
     }
 

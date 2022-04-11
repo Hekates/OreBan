@@ -19,7 +19,9 @@
 
 <h2 name="support">Support</h2>
 
-Always feel free to cantact me on discord: Hekates#2298
+* Ask anything about the plugin [here](https://github.com/Hekates/OreBan/discussions/2#discussion-3941893).
+* Always feel free to cantact me on discord: Hekates#2298.
+* Or contact me on twitter: [@Hekates2](https://twitter.com/Hekates2).
 
 <h2 name="about">About this project</h2>
 

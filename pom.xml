@@ -6,14 +6,14 @@
 
     <groupId>ch.hekates</groupId>
     <artifactId>oreban</artifactId>
-    <version>Pre-Alpha 1.0</version>
+    <version>Pre-Alpha 0.2</version>
     <packaging>jar</packaging>
 
     <name>OreBan</name>
 
     <description>A simple Plugin, wich lets administrators to ban players from mining ores.</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <url>https://hekates.github.io</url>

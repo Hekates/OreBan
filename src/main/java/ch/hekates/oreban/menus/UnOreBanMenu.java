@@ -49,6 +49,7 @@ public class UnOreBanMenu extends Menu {
             case PLAYER_HEAD:
                 PersistentDataContainer container = e.getCurrentItem().getItemMeta().getPersistentDataContainer();
                 String oreBanID = container.get(new NamespacedKey(Main.getPlugin(), "oreBanID"), PersistentDataType.STRING);
+
                 playerMenuUtility.setData("oreBanID", oreBanID);
 
                 MenuManager.openMenu(ConfirmUnban.class, playerMenuUtility.getOwner());

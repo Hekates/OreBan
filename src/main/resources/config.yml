@@ -1,22 +1,25 @@
 ####################################################################################################
 # +---------------------------------------------------------------------------------------------+ #
 #|                                                                                               |#
-#|                                               +-------------________________.                 |#
-#|                 ,--''--.                    | <---\    '----'    <---\|  > |                  |#
-#|                '   ||   ' ,--.--' ,----.    |  | ° |  /  ^  |    |   '  | |                   |#
-#|               |    ||    ||  |--´|   |  |  |  | .  < /   _   |  |  .    | |                   |#
+#|                                                +-------------________________.                |#
+#|                 ,--''--.                      | <---\    '----'    <---\|  >|                 |#
+#|                '   ||   ' ,--.--' ,----.     |  | ° |  /  ^  |    |   '  | |                  |#
+#|               |    ||    ||  |--´|   |  |   |  | .  < /   _   |  |  .    ||                   |#
 #|                '   ||   ' |  |   |---|-.'  | <_____|<____^____> <-\|---  |                    |#
 #|                 `--''--'  `--'    `----'   +-------------________________+                    |#
-#|                                                                                               |#
+#|                                    --<By Hekates>--                                           |#
 #|                                                                                               |#
 #|     WIKI: https://github.com/Hekates/OreBan/wiki                                              |#
 #|     BUG REPORTS: https://github.com/Hekates/OreBan/issues                                     |#
 #|                                                                                               |#
 #|                                                                                               |#
-#|     Config rules::                                                                            |#
+#|     Config rules:                                                                             |#
 #|     - DO NOT USE TABS. You MUST use double spaces to avoid errors.                            |#
 #|     - Lines starting with # are comments, so they are ignored.                                |#
+#|     - Only add custom blocks/ items at the specified place.                                   |#
+#|     - Feel free to remove/ comment out listed ores.                                           |#
 #|                                                                                               |#
+#|     Using a code editor like Notepad++ is recommended but not required.                       |#
 #|                                                                                               |#
 # +---------------------------------------------------------------------------------------------+ #
 ####################################################################################################
@@ -35,22 +38,24 @@ overworld-ores:
   - "LAPIS_ORE"
   - "DIAMOND_ORE"
 
-translate-to-deepslate: true
+translate-to-deepslate: true #Includes the deepslate variants of the above specified overworld ores.
 
+#Ores that naturally spawn in the nether/ ores which don't have a deepslate variant.
 nether-ores:
   - "NETHER_GOLD_ORE"
   - "NETHER_QUARTZ_ORE"
   - "ANCIENT_DEBRIS"
 
-raw-variants:
+#-Banned Items-#
+raw-variants: #If the resource has a raw variant, it's listed here.
   - "RAW_IRON"
   - "RAW_COPPER"
   - "RAW_GOD"
 
-include-raw-variants: true
-include-raw-blocks: true
+include-raw-variants: true #True = The above specified raw-resources count as bannable items.
+include-raw-blocks: true #Includes the block variants of the raw resources specified above. You won't be able to break these blocks aswell. ||Works regardless of inclusion of raw variants||
 
-processed-variants:
+processed-variants: #The mined/ smelted item variants of the nether- and normal ores specified on lines 29-45.
   - "COAL"
   - "DIAMOND"
   - "EMERALD"
@@ -62,12 +67,14 @@ processed-variants:
   - "NETHERITE_SCRAP"
   - "NETHERITE_INGOT"
 
-allow-item-pickup: false
-allow-inventory-transfer: true
+allow-item-pickup: false #False = player won't be able to pick up items/ ores specified above.
+allow-inventory-transfer: true #False = The banned player won't be able to move the items/ ores specified above to a chest/ to his own inventory. ||Could be a better performance alternative to the possession allowance||
 
-allow-ore-possession: true
-ore-possession-check-interval: 6000
+allow-ore-possession: true #True = Banned players are allowed to possess items/ ores specified above.
+ore-possession-check-interval: 6000 #Minecraft-tick interval in which the ore possession is checked. ||20 ticks = 1 second (6000 ticks = 5 minutes)||
 
+#-Additional Items-#
+#Feel free to add or remove listed items/ blocks
 additional-blocks:
   - "COAL_BLOCK"
   - "IRON_BLOCK"
@@ -78,3 +85,5 @@ additional-blocks:
 
 additional-items:
   - "CHARCOAL"
+
+#For a more detailed explenation and an unedited version of the config.yml file check out the wiki page (https://github.com/Hekates/OreBan/wiki/Config-Files#configyml)

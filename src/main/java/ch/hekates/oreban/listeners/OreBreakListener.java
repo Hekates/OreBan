@@ -1,6 +1,7 @@
 package ch.hekates.oreban.listeners;
 
 import ch.hekates.oreban.Main;
+import ch.hekates.oreban.OreBreakEffect;
 import ch.hekates.oreban.utils.OreList;
 import ch.hekates.oreban.utils.StorageUtil;
 import org.bukkit.GameMode;
@@ -22,21 +23,16 @@ public class OreBreakListener implements Listener {
         Player player = event.getPlayer();
         Block block = event.getBlock();
 
-        if (player.getGameMode() == GameMode.CREATIVE) return;
+        //if (player.getGameMode() == GameMode.CREATIVE) return;
+        //if (player.hasPermission("oreban.except")) return;
         if (!StorageUtil.contains(player.getUniqueId())) return;
-        if (player.hasPermission("oreban.except")) return;
 
         List ores = OreList.getOres();
         String materialString = block.getBlockData().getMaterial().toString();
 
         if (ores.contains(materialString)){
             event.setCancelled(true);
+            OreBreakEffect.play(player, block.getLocation());
         }
-
-        if (StorageUtil.contains(player.getUniqueId())){
-        }
-
     }
-
-
 }

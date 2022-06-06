@@ -22,7 +22,7 @@ public class ConfirmUnban extends Menu {
 
     @Override
     public String getMenuName() {
-        return "Confirm: Un-OreBan " + StorageUtil.findInformations(playerMenuUtility.getData("oreBanID").toString()).getPlayerName();
+        return "Confirm: Un-OreBan " + StorageUtil.findInformations(UUID.fromString(playerMenuUtility.getData("oreBanID").toString())).getPlayerName();
     }
 
     @Override
@@ -62,7 +62,7 @@ public class ConfirmUnban extends Menu {
     @Override
     public void setMenuItems() {
 
-        ItemStack yes = makeItem(Material.LIME_CONCRETE, ChatColor.GREEN + "Un-OreBan " + StorageUtil.findInformations(playerMenuUtility.getData("oreBanID").toString()).getPlayerName());
+        ItemStack yes = makeItem(Material.LIME_CONCRETE, ChatColor.GREEN + "Un-OreBan " + StorageUtil.findInformations(UUID.fromString(playerMenuUtility.getData("oreBanID").toString())).getPlayerName());
         ItemStack no = makeItem(Material.RED_CONCRETE, ChatColor.RED + "Cancel");
 
         inventory.setItem(3, yes);

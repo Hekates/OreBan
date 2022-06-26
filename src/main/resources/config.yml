@@ -55,7 +55,7 @@ raw-variants: #If the resource has a raw variant, it's listed here.
 include-raw-variants: true #True = The above specified raw-resources count as bannable items.
 include-raw-blocks: true #Includes the block variants of the raw resources specified above. You won't be able to break these blocks aswell. ||Works regardless of inclusion of raw variants||
 
-processed-variants: #The mined/ smelted item variants of the nether- and normal ores specified on lines 29-45.
+processed-variants: #The mined/ smelted item variants of the nether- and normal ores specified on lines 31-47.
   - "COAL"
   - "DIAMOND"
   - "EMERALD"

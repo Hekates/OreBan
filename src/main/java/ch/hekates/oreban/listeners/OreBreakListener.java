@@ -34,5 +34,5 @@ public class OreBreakListener implements Listener {
             event.setCancelled(true);
             OreBreakEffect.play(player, block.getLocation());
         }
-    }
-}
+}    }
+

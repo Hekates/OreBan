@@ -24,9 +24,14 @@
 # +---------------------------------------------------------------------------------------------+ #
 ####################################################################################################
 
+#-Language-#
+#This is the plugin's language.
+#Feel free to switch between the provided languages (en: English and de: German/ Deutsch)
+language: "en"
+
 #-Banned Ores-#
 #Ores which naturally spawn in the overworld and have a deepslate variant.
-#Feel free to remove any of the listed ore, but:
+#Feel free to remove any of the listed ores, but:
 #!!ONLY ADD ORES WHICH HAVE A DEEPSLATE VARIANT!! (If they don't have a deepslate variant, add them under the "additional-blocks" section.)
 overworld-ores:
   - "COAL_ORE"
@@ -55,7 +60,7 @@ raw-variants: #If the resource has a raw variant, it's listed here.
 include-raw-variants: true #True = The above specified raw-resources count as bannable items.
 include-raw-blocks: true #Includes the block variants of the raw resources specified above. You won't be able to break these blocks aswell. ||Works regardless of inclusion of raw variants||
 
-processed-variants: #The mined/ smelted item variants of the nether- and normal ores specified on lines 31-47.
+processed-variants: #The mined/ smelted item variants of the nether- and normal ores specified on lines 34-44.
   - "COAL"
   - "DIAMOND"
   - "EMERALD"

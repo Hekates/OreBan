@@ -7,8 +7,10 @@ import org.bukkit.entity.Player;
 
 import java.io.*;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class StorageUtil {
+    static Logger log = Main.getPlugin().getLogger();
 
     private static ArrayList<BannedPlayersInfos> infos = new ArrayList<>();
 
@@ -140,7 +142,7 @@ public class StorageUtil {
         gson.toJson(infos, writer);
         writer.flush();
         writer.close();
-        System.out.println("OreBan-Informations saved.");
+        log.info("OreBan-Informations saved.");
 
     }
 
@@ -152,7 +154,7 @@ public class StorageUtil {
             Reader reader = new FileReader(file);
             BannedPlayersInfos[] b = gson.fromJson(reader, BannedPlayersInfos[].class);
             infos = new ArrayList<>(Arrays.asList(b));
-            System.out.println("OreBan-Informations loaded.");
+            log.info("OreBan-Informations loaded.");
         }
 
     }

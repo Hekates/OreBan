@@ -3,6 +3,8 @@ package ch.hekates.oreban;
 import ch.hekates.oreban.commands.BansMenuCommand;
 import ch.hekates.oreban.commands.OreBanCommand;
 import ch.hekates.oreban.commands.ReloadCommand;
+import ch.hekates.oreban.langmanager.LangLoader;
+import ch.hekates.oreban.langmanager.Text;
 import ch.hekates.oreban.listeners.OreBreakListener;
 import ch.hekates.oreban.listeners.OrePickupEvent;
 import ch.hekates.oreban.utils.OreList;
@@ -17,6 +19,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Logger;
 
 public final class Main extends JavaPlugin {
 
@@ -28,11 +31,21 @@ public final class Main extends JavaPlugin {
 
         plugin = this;
 
+        Logger log = getLogger();
+
+        String language = getConfig().getString("language");
+        LangLoader.load(language);
+        log.info("Loaded language: " + language);
+
         OreList.setOres(OreList.combineOres());
-        System.out.println("Set checked Ores!");
+        try {
+            log.info(Text.get("console.ore.confirm"));
+        } catch (IOException e) {
+            log.warning("Text in the proper language couldn't be loaded due to an IO exception!");
+        }
 
         OreList.setItems(OreList.combinedItems());
-        System.out.println("Set checked Items!");
+        log.info("Set checked items!");
 
         try {
             CommandManager.createCoreCommand(this, "oreban", "(Un-)Bans players from minig ores.", "/oreban <ban|unban|reload>", new CommandList() {

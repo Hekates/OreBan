@@ -25,13 +25,13 @@ public class OrePickupEvent implements Listener {
         Player player = (Player) event.getEntity();
         String item = event.getItem().getItemStack().getType().toString();
 
-        if (player.hasPermission("oreban.except")) return;
+        //if (player.hasPermission("oreban.except")) return;
         if (!StorageUtil.contains(player.getUniqueId())) return;
 
         List items = OreList.getItems();
         if (items.contains(item)){
             event.setCancelled(true);
-            OreBreakEffect.play(player, event.getItem().getLocation());
+            OreBreakEffect.play(player, event.getItem().getLocation().add(0, 0.3, 0), true);
         }
     }
 }

@@ -44,25 +44,15 @@ public class OreList {
         Configuration config = Main.getPlugin().getConfig();
         List<String> possibleItems = getOres();
 
-        System.out.println(possibleItems);
-
         if (config.getBoolean("include-raw-variants")){
             possibleItems.addAll((Collection<? extends String>) config.getList("raw-variants"));
         }
-
-        System.out.println(possibleItems);
-
         possibleItems.addAll((Collection<? extends String>) config.getList("processed-variants"));
-
-        System.out.println(possibleItems);
 
         possibleItems.addAll((Collection<? extends String>) config.getList("additional-blocks"));
 
-        System.out.println(possibleItems);
-
         possibleItems.addAll((Collection<? extends String>) config.getList("additional-items"));
 
-        System.out.println(possibleItems);
 
         return possibleItems;
     }

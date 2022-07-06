@@ -6,7 +6,7 @@
 
     <groupId>ch.hekates</groupId>
     <artifactId>oreban</artifactId>
-    <version>Pre-Alpha 0.2</version>
+    <version>Pre-Alpha 0.3</version>
     <packaging>jar</packaging>
 
     <name>OreBan</name>

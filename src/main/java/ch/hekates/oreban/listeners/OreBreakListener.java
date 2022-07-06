@@ -4,7 +4,6 @@ import ch.hekates.oreban.Main;
 import ch.hekates.oreban.OreBreakEffect;
 import ch.hekates.oreban.utils.OreList;
 import ch.hekates.oreban.utils.StorageUtil;
-import org.bukkit.GameMode;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
@@ -32,7 +31,7 @@ public class OreBreakListener implements Listener {
 
         if (ores.contains(materialString)){
             event.setCancelled(true);
-            OreBreakEffect.play(player, block.getLocation());
+            OreBreakEffect.play(player, block.getLocation().add(0.5, 0.5, 0.5), false);
         }
 }    }
 

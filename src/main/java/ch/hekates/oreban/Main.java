@@ -41,7 +41,9 @@ public final class Main extends JavaPlugin {
         try {
             log.info(Text.get("console.ore.confirm"));
         } catch (IOException e) {
-            log.warning("Text in the proper language couldn't be loaded due to an IO exception!");
+            log.warning("Text \"console.ore.confirm\" couldn't be loaded in the proper language due to an IO exception!");
+            e.printStackTrace();
+            log.info("\"console.ore.confirm\"");
         }
 
         OreList.setItems(OreList.combinedItems());

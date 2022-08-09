@@ -4,6 +4,7 @@ import ch.hekates.oreban.Main;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -17,9 +18,13 @@ public class LangLoader {
         File file = new File(Main.getPlugin().getDataFolder().getAbsolutePath() + "/lang/" + language + ".json");
 
         if (file.exists()){
-            log.finest("YAYYYYYYYYYYYY");
+            try {
+                log.info(Text.get("console.lang.file_exists"));
+            } catch (IOException e) {}
         } else {
-            log.warning("NAYYYYYYYYYY");
+            try {
+                log.warning(Text.get("console.lang.no_file_exists"));
+            } catch (IOException e) {}
             Main.getPlugin().saveResource("lang\\" + language + ".json", false);
         }
     }

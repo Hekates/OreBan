@@ -3,7 +3,10 @@ package ch.hekates.oreban;
 import ch.hekates.oreban.commands.BansMenuCommand;
 import ch.hekates.oreban.commands.OreBanCommand;
 import ch.hekates.oreban.commands.ReloadCommand;
+import ch.hekates.oreban.langmanager.LangLoader;
+import ch.hekates.oreban.langmanager.Text;
 import ch.hekates.oreban.listeners.OreBreakListener;
+import ch.hekates.oreban.listeners.OrePickupEvent;
 import ch.hekates.oreban.utils.OreList;
 import ch.hekates.oreban.utils.StorageUtil;
 import me.kodysimpson.simpapi.command.CommandList;
@@ -16,6 +19,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Logger;
 
 public final class Main extends JavaPlugin {
 
@@ -27,8 +31,23 @@ public final class Main extends JavaPlugin {
 
         plugin = this;
 
+        Logger log = getLogger();
+
+        String language = getConfig().getString("language");
+        LangLoader.load(language);
+        log.info("Loaded language: " + language);
+
         OreList.setOres(OreList.combineOres());
-        System.out.println("Set checked Ores!");
+        try {
+            log.info(Text.get("console.ore.confirm"));
+        } catch (IOException e) {
+            log.warning("Text \"console.ore.confirm\" couldn't be loaded in the proper language due to an IO exception!");
+            e.printStackTrace();
+            log.info("\"console.ore.confirm\"");
+        }
+
+        OreList.setItems(OreList.combinedItems());
+        log.info("Set checked items!");
 
         try {
             CommandManager.createCoreCommand(this, "oreban", "(Un-)Bans players from minig ores.", "/oreban <ban|unban|reload>", new CommandList() {
@@ -55,13 +74,8 @@ public final class Main extends JavaPlugin {
         }
 
         Bukkit.getPluginManager().registerEvents(new OreBreakListener(), this);
+        Bukkit.getPluginManager().registerEvents(new OrePickupEvent(), this);
 
-
-    }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
     }
 
     public static Main getPlugin() {

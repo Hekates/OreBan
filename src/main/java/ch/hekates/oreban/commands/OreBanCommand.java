@@ -1,16 +1,22 @@
 package ch.hekates.oreban.commands;
 
+import ch.hekates.oreban.Main;
+import ch.hekates.oreban.langmanager.Text;
 import ch.hekates.oreban.utils.StorageUtil;
 import me.kodysimpson.simpapi.command.SubCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class OreBanCommand extends SubCommand {
+
+    Logger log = Main.getPlugin().getLogger();
 
     @Override
     public String getName() {
@@ -24,12 +30,25 @@ public class OreBanCommand extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Bans a players ability to mine ores.";
+        try {
+            return Text.get("command.description.ban");
+        } catch (IOException e) {
+            log.warning("Text \"command.description.ban\" couldn't be loaded in the proper language due to an IO exception!");
+            e.printStackTrace();
+            return "\"command.description.ban\"";
+        }
     }
 
     @Override
     public String getSyntax() {
-        return "/oreban ban <player|UUID> [note]";
+
+        try {
+            return Text.get("command.syntax.ban");
+        } catch (IOException e) {
+            log.warning("Text \"command.syntax.ban\" couldn't be loaded in the proper language due to an IO exception!");
+            e.printStackTrace();
+            return "\"command.syntax.ban\"";
+        }
     }
 
     @Override

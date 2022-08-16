@@ -4,10 +4,11 @@ import ch.hekates.oreban.Main;
 import org.bukkit.configuration.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class OreList {
-     public static List combineOres(){
+    public static List combineOres() {
         Configuration config = Main.getPlugin().getConfig();
 
         List<String> overworldOres = (List<String>) config.getList("overworld-ores");
@@ -22,9 +23,9 @@ public class OreList {
             possibleOres.addAll(deepslateOres);
         }
 
-        possibleOres.addAll( (List<String>) config.getList("nether-ores"));
+        possibleOres.addAll((List<String>) config.getList("nether-ores"));
 
-        if (config.getBoolean("include-raw-blocks") == true){
+        if (config.getBoolean("include-raw-blocks") == true) {
             List<String> rawVariants = (List<String>) config.getList("raw-variants");
             List<String> rawBlocks = new ArrayList<>();
             for (String rawVariant : rawVariants) {
@@ -39,16 +40,40 @@ public class OreList {
         return possibleOres;
     }
 
+    public static List combinedItems() {
+        Configuration config = Main.getPlugin().getConfig();
+        List<String> possibleItems = getOres();
 
-    private static List<String> ores;
+        if (config.getBoolean("include-raw-variants")){
+            possibleItems.addAll((Collection<? extends String>) config.getList("raw-variants"));
+        }
+        possibleItems.addAll((Collection<? extends String>) config.getList("processed-variants"));
 
-    public static void setOres(List<String> ores) {
-        OreList.ores = ores;
+        possibleItems.addAll((Collection<? extends String>) config.getList("additional-blocks"));
+
+        possibleItems.addAll((Collection<? extends String>) config.getList("additional-items"));
+
+
+        return possibleItems;
     }
 
+
+    private static List<String> ores;
+    private static List<String> items;
 
     public static List<String> getOres() {
         return ores;
     }
 
+    public static void setOres(List<String> ores) {
+        OreList.ores = ores;
+    }
+
+    public static List<String> getItems() {
+        return items;
+    }
+
+    public static void setItems(List<String> items) {
+        OreList.items = items;
+    }
 }

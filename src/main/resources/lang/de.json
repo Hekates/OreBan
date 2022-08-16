@@ -1,0 +1,18 @@
+{
+  "console.ore.confirm" : "Die verbotenen Ertze wurden festgelegt!",
+  "console.lang.file_exists" : "Die angegebene Sprachdatei befindet sich am richtigen Ort... es wird fortgefahren.",
+  "console.lang.no_file_exists" : "Die angegebene Sprachdatei befindet sich nicht am richtigen Ort... es wird eine neue generiert.",
+  "console.event.break" : "Der gebannte Spieler (%p) hat versucht, einen verbotenen Block abzubauen.",
+  "console.event.pickup" : "Der gebannte Spieler (%p) hat versucht, ein verbotenes Item aufzuheben.",
+
+  "command.description.ban" : "Verbietet dem Spieler, Erze und andere wertvolle Items abzubauen, zu besitzen und zu benutzen.",
+  "command.description.reload" : "Ladet die Konfigurations- und/ oder die Baninformationsdateien neu.",
+  "command.description.unban" : "Erlaubt es dem Spieler, wieder Erze und andere wertvolle Items abzubauen, zu besitzen und zu benutzen.",
+
+  "command.syntax.ban" : "/oreban ban <Spieler|UUID> [Notiz]",
+  "command.syntax.reload" : "/oreban reload [configurations|baninformations|all]",
+  "command.syntax.unban" :  "/oreban unban <Spieler|uuid>",
+
+  "event.break.player" : "Du kannst %b nicht abbauen, du bist ge-orebannt. Kontaktiere ein Staff Mitglied für mehr Informationen",
+  "event.pickup.player" : "Du kannst %i nicht aufheben, du bist ge-orebannt. Kontaktiere ein Staff Mitglied für mehr Informationen."
+}

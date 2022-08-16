@@ -1,0 +1,18 @@
+{
+  "console.ore.confirm" : "Set banned ores!",
+  "console.lang.file_exists" : "The specified language file is located in the right directory... proceeding.",
+  "console.lang.no_file_exists" : "The specified language file is not located in the right directory... generating a new one.",
+  "console.event.break" : "The banned player %p tried to break a block.",
+  "console.event.pickup" : "The banned player %p tried to pick up a banned item.",
+
+  "command.description.ban" : "Bans a players ability to mine, possess and use ores and other valuable items.",
+  "command.description.reload" : "Reloads the configuration and/ or the baninformations.json files.",
+  "command.description.unban" : "Returns a players ability to mine, possess and use ores and other valuable items.",
+
+  "command.syntax.ban" : "/oreban ban <player|UUID> [note]",
+  "command.syntax.reload" : "/oreban reload [configurations|baninformations|all]",
+  "command.syntax.unban" :  "/oreban unban <player|uuid>",
+
+  "event.break.player" : "You can't break %b, you are ore banned. Contact a staff member for more informations.",
+  "event.pickup.player" : "You can't pick up %i, you are ore banned. Contact a staff member for more informations."
+}

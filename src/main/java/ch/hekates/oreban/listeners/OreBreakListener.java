@@ -41,7 +41,7 @@ public class OreBreakListener implements Listener {
 
             //Logging
             try {
-                log.warning(Text.get("console.event.break").replaceAll("%p", player.getDisplayName()));
+                log.warning(Text.get("console.event.break").replaceAll("%p", player.getDisplayName().replaceAll("%b", materialString.replaceAll("_", " "))));
             } catch (IOException e) {
                 log.warning("console.event.break -> " + player);
             }
@@ -49,7 +49,7 @@ public class OreBreakListener implements Listener {
             //Notifying the player
             OreBreakEffect.play(player, block.getLocation().add(0.5, 0.5, 0.5), false);
             try {
-                player.sendMessage(Text.get("event.break.player").replaceAll("%b", materialString));
+                player.sendMessage(Text.get("event.break.player").replaceAll("%b", materialString.replaceAll("_", " ")));
             } catch (IOException e) {
                 player.sendMessage(ChatColor.RED + "\"event.break.player\"");
                 log.warning("Text \"event.break.player\" couldn't be loaded in the proper language due to an IO exception!");

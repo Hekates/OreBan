@@ -43,9 +43,9 @@ public class OrePickupEvent implements Listener {
 
             //Logging
             try {
-                log.warning(Text.get("console.event.pickup").replaceAll("%p", player.getDisplayName()));
+                log.warning(Text.get("console.event.pickup").replaceAll("%p", player.getDisplayName().replaceAll("%i", item.replaceAll("_", " "))));
             } catch (IOException e) {
-                log.warning("console.event.pickup -> " + player);
+                log.warning("console.event.pickup -> " + player + "-> " + item.replaceAll("_", " "));
             }
 
             //Notifying the player

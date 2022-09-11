@@ -1,6 +1,6 @@
 <img src="/img/logo/oreban-logo.png" />
 
-<h3>Version: pre-alpha 0.3</h2>
+<h3>Version: pre-alpha 0.3</h3>
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/Hekates/OreBan?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/Hekates/OreBan?style=for-the-badge)
